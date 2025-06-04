@@ -28,7 +28,6 @@ kinit()
 {
   initlock(&kmem.lock, "kmem");
   freerange(end, (void*)PHYSTOP);
-  printf("PHYSTOP is %p\n", PHYSTOP);
 }
 
 void
@@ -81,6 +80,3 @@ kalloc(void)
     memset((char*)r, 5, PGSIZE); // fill with junk
   return (void*)r;
 }
-
-// used for tracing purposes in exp2
-// void *kget_freelist(void) { return kmem.freelist; } 
